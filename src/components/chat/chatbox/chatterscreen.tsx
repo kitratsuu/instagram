@@ -1,6 +1,4 @@
-import { useAtom } from "jotai";
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { useratom } from "../../mainpage/rightpanel/rightpanel";
 import { useChatsfetch } from "../../functions/chatfunctions";
 import { chatstates } from "../messages";
 import { Basicdata, Chats } from "../../types/datafetch";

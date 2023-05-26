@@ -3,19 +3,12 @@ import { Firestore, Timestamp } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { FaBirthdayCake } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import Datepicker from "react-tailwindcss-datepicker";
 import { updateFields } from "../../../../functions/datafunctions";
 import { Haveanaccount } from "../../signup";
 
 const Birthday = () => {
   const date = new Date();
-  const [value, setValue] = useState<{
-    startDate: string;
-    endDate: string;
-  }>({
-    startDate: date.toLocaleDateString(),
-    endDate: date.toLocaleDateString(),
-  });
+  const [value, setValue] = useState<string>();
   const navigate = useNavigate();
 
   const handleValueChange = (newValue: any) => {
@@ -26,12 +19,12 @@ const Birthday = () => {
 
   function setBirthDay() {
     const timestamp_date = Timestamp.fromDate(new Date());
-    if (value.startDate === date.toLocaleDateString()) {
+    if (value === date.toLocaleDateString()) {
       alert("please select a date");
     } else {
       const auth = getAuth();
       const obj = {
-        birthday: value.startDate,
+        birthday: value,
         initSetup: true,
         timestamp: timestamp_date,
       };
@@ -50,13 +43,13 @@ const Birthday = () => {
           <span className="text-2xl font-serif">Enter your Birthday</span>
         </div>
         <div className="w-[300px]">
-          <Datepicker
-            primaryColor={"blue"}
-            useRange={false}
-            asSingle={true}
+          <input
+            type="date"
             value={value}
             onChange={handleValueChange}
-          />
+            id="birthday"
+            name="birthday"
+          ></input>
         </div>
         <span>This wont be part of your public profile.</span>
         <div className="">{loading ? "Loading..." : ""}</div>
