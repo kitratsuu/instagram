@@ -37,12 +37,12 @@ function Profiledetails() {
           <Pfpupdate />
         </div>
         <div className="sm:flex md:flex lg:flex mt-2">
-          <div className="w-1/3 h-[300px] border-2 hidden sm:flex md:flex lg:flex justify-center items-center border-white">
+          <div className="w-1/3 h-[300px] border-2 hidden sm:flex md:flex lg:flex justify-center items-center border-none">
             <button
               onClick={() => {
                 setChangeprofilepicscreen(true);
               }}
-              className="w-[100px] h-[100px] sm:w-[100px] sm:h-[100px] md:w-[100px] md:h-[100px] lg:w-[200px] lg:h-[200px] rounded-full border-2 border-white"
+              className="w-[100px] h-[100px] sm:w-[100px] sm:h-[100px] md:w-[100px] md:h-[100px] lg:w-[200px] lg:h-[200px] rounded-full border-2 border-none"
             >
               <img
                 src={profilepic}
@@ -51,10 +51,10 @@ function Profiledetails() {
               />
             </button>
           </div>
-          <div className="h-[300px] sm:w-2/3 md:w-2/3 lg:w-2/3 w-full border-2 border-white">
+          <div className="h-[300px] sm:w-2/3 md:w-2/3 lg:w-2/3 w-full border-2 border-none">
             <div className="m-5 space-y-5">
               <div className="flex items-center sm:w-fit md:w-fit lg:w-fit w-full  space-x-5 ">
-                <div className="w-[50px] h-[50px] sm:hidden md:hidden lg:hidden block rounded-full border-2 border-white"></div>
+                <div className="w-[50px] h-[50px] sm:hidden md:hidden lg:hidden block rounded-full border-2 border-none"></div>
 
                 <span className="text-white text-[30px]">{data?.userName}</span>
                 <button className="bg-white sm:block md:block lg:block hidden h-fit p-1 rounded-lg hover:bg-white/50">
@@ -87,7 +87,7 @@ function Profiledetails() {
             </div>
           </div>
         </div>
-        <div className="w-full h-28 flex items-center border-2 border-white">
+        <div className="w-full ml-6 h-28 flex items-center border-2 border-none">
           <div className="flex overflow-y-auto space-x-4 sm:space-x-14 md:space-x-14 lg:space-x-14 ">
             {headlines.map((e, i) => {
               return <Story items={e} key={i} />;
@@ -100,7 +100,7 @@ function Profiledetails() {
             onMouseOut={() => {
               setHeadlinebuttonstate(false);
             }}
-            className={`flex items-center justify-center w-[80px] h-[80px] m-2 rounded-full bg-slate-200 hover:bg-slate-400 border-slate-400 flex-none  border-2 `}
+            className={`flex items-center justify-center w-[80px] h-[80px] m-2 rounded-full bg-slate-200 hover:bg-slate-400 border-slate-400 flex-none  border-2 border-none `}
           >
             <BsPlusLg
               className={` ${headlinebuttonstate ? "w-6 h-6" : "w-8 h-8"}`}
@@ -180,7 +180,7 @@ function Profiledetails() {
             </button>
           </div>
         </div>
-        <div className="">
+        <div className=" ml-6">
           {buttonselection == 1 ? (
             <Posts />
           ) : buttonselection == 2 ? (

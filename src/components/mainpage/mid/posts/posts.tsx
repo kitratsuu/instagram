@@ -7,11 +7,23 @@ import Shareicon from "../../../../svgcomps/shareicon";
 import { diffbetdates } from "../../../functions/userfuncs2";
 import { Basicdata } from "../../../types/datafetch";
 import { useFetchpostsfromstorage } from "../../../functions/datafetchfire";
+import { useDiffuserProfilepicfetch } from "../../../profile/profilefunctions/profilefunctions";
 
 export default function Posts(props: any) {
   const { error, loading, fetchedposturl, fetchpostfromstore } =
     useFetchpostsfromstorage();
+  const {
+    loading: l,
+    error: e,
+    profilepic,
+    picfetch,
+  } = useDiffuserProfilepicfetch();
   const [data, setData] = useState<Basicdata>();
+
+  useEffect(() => {
+    picfetch(props.item.uid);
+  }, []);
+
   useEffect(() => {
     const uid = getAuth().currentUser!.uid;
     getDoc(doc(getFirestore(), "users/" + uid)).then((result) => {
@@ -22,7 +34,9 @@ export default function Posts(props: any) {
   return (
     <div className="min-h-[500px] h-fit bg-slate-300 border-slate-300 space-y-2 mt-2 rounded-lg border-2 snap-center snap-always">
       <div className="w-full h-[50px] flex items-center space-x-2">
-        <div className="h-full w-[50px] border-2 border-black rounded-full"></div>
+        <div className="h-full w-[50px] border-2 border-black rounded-full">
+          <img src={profilepic} className="w-full h-full rounded-full" />
+        </div>
         <div className="flex items-end space-x-4">
           <span className="">@{props.item.userName}</span>
           <span className="text-xs ">

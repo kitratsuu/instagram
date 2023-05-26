@@ -32,6 +32,27 @@ export function useProfilepicfetch() {
   return { loading, error, profilepic, picfetch };
 }
 
+export function useDiffuserProfilepicfetch() {
+  const auth = getAuth();
+  const storage = getStorage();
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState();
+  const [profilepic, setProfilepic] = useState<string | undefined>();
+  async function picfetch(useruid: string | null) {
+    setLoading(true);
+    const storageref = ref(storage, `useruploads/${useruid!}/profile`);
+    getDownloadURL(storageref)
+      .then((url) => {
+        setProfilepic(url);
+      })
+      .catch((error) => {
+        setError(error);
+      });
+    setLoading(false);
+  }
+  return { loading, error, profilepic, picfetch };
+}
+
 export function useUploadProfilepic() {
   const auth = getAuth();
   const storage = getStorage();

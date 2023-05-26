@@ -139,11 +139,11 @@ export function useFetchreelsfromstorage() {
   const [fetchedreelurl, setFetchedreelurl] = useState("");
   const [fetchedreelcoverpic, setFetchedreelcoverpic] = useState("");
   const auth = getAuth();
-  function fetchpostfromstore(folderuuid: string) {
+  function fetchpostfromstore(folderuuid: string, useruid: string) {
     setLoading(true);
     const reelstorageref = ref(
       storage,
-      `useruploads/${auth.currentUser?.uid}/reels/${folderuuid}/reelvideo`
+      `useruploads/${useruid}/reels/${folderuuid}/reelvideo`
     );
     getDownloadURL(reelstorageref)
       .then((url) => {
@@ -154,7 +154,7 @@ export function useFetchreelsfromstorage() {
       });
     const coverstorageref = ref(
       storage,
-      `useruploads/${auth.currentUser?.uid}/reels/${folderuuid}/coverpic`
+      `useruploads/${useruid}/reels/${folderuuid}/coverpic`
     );
     getDownloadURL(coverstorageref)
       .then((url) => {

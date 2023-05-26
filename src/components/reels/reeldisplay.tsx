@@ -1,12 +1,16 @@
-import React, { useContext, useEffect } from "react";
+import React, { RefObject, useContext, useEffect, useRef } from "react";
 import { AiOutlineHeart } from "react-icons/ai";
 import { BsBookmark, BsThreeDots } from "react-icons/bs";
 import { FaRegComment } from "react-icons/fa";
 import Shareicon from "../../svgcomps/shareicon";
 import { useFetchreelsfromstorage } from "../functions/datafetchfire";
 import { reelpfp } from "./reelpanel";
+import { useElement } from "../functions/chatfunctions";
 
 export default function Reeldisplay(props: any) {
+  const videodisplay = useRef<HTMLDivElement>(null);
+  const videoref = useRef<HTMLVideoElement>(null);
+  const isIntersecting = useElement(videodisplay, 0.6);
   const [profilepic] = useContext(reelpfp);
   const {
     error,
@@ -16,14 +20,28 @@ export default function Reeldisplay(props: any) {
     fetchpostfromstore,
   } = useFetchreelsfromstorage();
   useEffect(() => {
-    fetchpostfromstore(props.item.folderuid);
+    fetchpostfromstore(props.item.folderuid, props.item.uid);
   }, []);
+
+  useEffect(() => {
+    if (isIntersecting) {
+      videoref.current?.play();
+    } else {
+      videoref.current?.pause();
+    }
+    console.log("video intersecting", isIntersecting);
+  }, [isIntersecting]);
+
   return (
     <div className="w-full h-[90%] flex space-x-3 rounded-lg snap-center snap-always">
-      <div className="w-[90%] h-full border-2 border-slate-600 rounded-lg">
+      <div
+        ref={videodisplay}
+        className="w-[90%] h-full border-2 border-slate-600 rounded-lg"
+      >
         <video
+          ref={videoref}
           src={fetchedreelurl}
-          autoPlay={true}
+          autoPlay={isIntersecting}
           className="h-full w-full"
         ></video>
       </div>

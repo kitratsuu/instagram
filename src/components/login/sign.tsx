@@ -18,9 +18,9 @@ export default function Sign() {
   const { loading, error, signIn } = authStatus();
 
   return (
-    <div className={`h-full flex`}>
+    <div className={`h-full flex bg-slate-200`}>
       <div className="flex flex-col w-full my-auto items-center space-y-3">
-        <div className="flex flex-col space-y-8 items-center w-[400px] h-fit border-2 bg-white rounded-md border-slate-300">
+        <div className="flex flex-col space-y-8 items-center w-[400px] h-fit border-2 bg-white rounded-md border-slate-500">
           <div className="flex flex-col w-[175px] h-[103px] bg-no-repeat bg-[url('https://static.cdninstagram.com/rsrc.php/v3/y-/r/yXM3FgMdVNX.png')]"></div>
           <div className="flex flex-col space-y-4">
             <form
@@ -88,7 +88,7 @@ export default function Sign() {
           </button>
         </div>
         <div className="">
-          <div className="flex flex-col mb-4 space-y-3 bg-slate-100 items-center w-[400px] h-fit border-2 rounded-md border-slate-300">
+          <div className="flex flex-col mb-4 space-y-3 bg-slate-100 items-center w-[400px] h-fit border-2 rounded-md border-slate-500">
             <span className="m-6">
               Dont have an account?{" "}
               <button

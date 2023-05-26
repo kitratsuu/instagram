@@ -1,3 +1,5 @@
+import { Timestamp } from "firebase/firestore";
+
 export interface Basicdata {
   fullName: string;
   email: string;
@@ -11,4 +13,10 @@ export interface Filetype {
   webkitRelativePath: string;
   size: number;
   type: string;
+}
+
+export interface Chats {
+  ch: string;
+  timestamp: Timestamp;
+  username: string;
 }

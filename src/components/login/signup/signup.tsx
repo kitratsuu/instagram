@@ -19,7 +19,7 @@ export default function Signup() {
   return (
     <div className={`h-full flex`}>
       <div className="flex flex-col my-auto items-center w-full space-y-3">
-        <div className="flex flex-col space-y-3 items-center w-[400px] h-fit border-2 border-slate-300">
+        <div className="flex flex-col space-y-3 items-center w-[400px] h-fit border-2 border-slate-400">
           <div className="flex flex-col text-center items-center">
             <div className="flex flex-col text-center items-center w-[175px] h-[103px] bg-no-repeat bg-[url('https://static.cdninstagram.com/rsrc.php/v3/y-/r/yXM3FgMdVNX.png')]"></div>
             <span className="text-xl font-bold text-slate-400 mx-10">
@@ -138,7 +138,7 @@ export function Haveanaccount() {
 
   return (
     <div className="">
-      <div className="flex flex-col mb-4 space-y-3 items-center w-[400px] h-fit border-2 border-slate-300">
+      <div className="flex flex-col mb-4 space-y-3 items-center w-[400px] h-fit border-2 border-slate-400">
         <span className="m-6">
           Have an account?{" "}
           <button

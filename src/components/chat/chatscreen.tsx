@@ -11,7 +11,7 @@ export const chatdata = createContext<any>(0);
 
 export default function Chatscreen() {
   const [data, setData] = useState<Basicdata>();
-
+  const [chatusers, setChatusers] = useState();
   const [topnav, setTopnav] = useState(false);
   const { loading, error, profilepic, picfetch } = useProfilepicfetch();
 
@@ -26,7 +26,13 @@ export default function Chatscreen() {
   }, []);
 
   return (
-    <chatdata.Provider value={[loading, error, profilepic, data]}>
+    <chatdata.Provider
+      value={{
+        pfp: [loading, error, profilepic, data],
+        chatuserslist: [chatusers, setChatusers],
+        curruser: [data, setData],
+      }}
+    >
       <div className="App bg-black">
         <Top
           setval={(tf) => {

@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
-import { GrClose } from "react-icons/gr";
 import {
   useFetchprofilepics,
   useFetchuserslist,
-} from "../functions/chatfunctions";
-import { chatstates } from "./messages";
+} from "../../functions/chatfunctions";
+import { chatstates } from "../messages";
+import Searchpeopledisplay from "./searchpeopledisplay";
 
 export default function Searchpeoplescreen() {
   const { usersearchscreen } = useContext(chatstates);
@@ -14,14 +14,11 @@ export default function Searchpeoplescreen() {
   useEffect(() => {
     postsFetch();
   }, []);
-  useEffect(() => {
-    console.log(fetchedusers);
-  }, [fetchedusers]);
 
   return (
     <div className="absolute inset-0 z-20 w-screen h-screen flex justify-center bg-black backdrop-blur opacity-95 items-center">
-      <div className="w-[400px] h-[500px] border-white border-2 space-y-3 p-2">
-        <div className="w-full h-[80px] space-y-3">
+      <div className="w-[400px] h-[500px] border-white border-2 p-2">
+        <div className="w-full h-[18%] space-y-2">
           <div className="w-full flex items-center justify-between">
             <button
               onClick={() => {
@@ -43,16 +40,9 @@ export default function Searchpeoplescreen() {
             />
           </div>
         </div>
-        <div className="space-y-4 h-[400px] overflow-scroll">
+        <div className="space-y-14 h-[82%] overflow-auto p-4 border-2">
           {fetchedusers.map((e: any, i) => {
-            return (
-              <div key={i} className="w-full h-4 flex text-white">
-                <div className="w-4 h-4 border-2 rounded-full">
-                  <img src={e.profilepicurl} alt="" />
-                </div>
-                <span>{e.userName}</span>
-              </div>
-            );
+            return <Searchpeopledisplay key={i} val={e} />;
           })}
         </div>
       </div>

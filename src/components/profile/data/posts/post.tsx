@@ -5,7 +5,7 @@ export default function Post(props: { item: any }) {
   const { error, loading, fetchedposturl, fetchpostfromstore } =
     useFetchpostsfromstorage();
   useEffect(() => {
-    fetchpostfromstore(props.item.postuid);
+    fetchpostfromstore(props.item.postuid, props.item.uid);
   }, []);
   return (
     <div className="w-[400px] h-[400px]">

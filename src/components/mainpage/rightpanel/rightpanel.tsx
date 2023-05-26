@@ -1,8 +1,16 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { pfp } from "../home";
+import { atom, useAtom } from "jotai";
+
+export const useratom = atom("");
 
 export default function Rightpanel() {
   const [loading, error, profilepic, data] = useContext(pfp);
+  const [username, setUsername] = useAtom(useratom);
+
+  useEffect(() => {
+    setUsername(data?.userName);
+  }, []);
 
   return (
     <div className=" xl:min-w-[350px] xl:block lg:block hidden justify-center">

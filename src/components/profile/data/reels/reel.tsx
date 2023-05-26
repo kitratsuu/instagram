@@ -10,7 +10,7 @@ export default function Reel(props: { item: any }) {
     fetchpostfromstore,
   } = useFetchreelsfromstorage();
   useEffect(() => {
-    fetchpostfromstore(props.item.folderuid);
+    fetchpostfromstore(props.item.folderuid, props.item.uid);
   }, []);
   return (
     <div className="w-full h-[510px] hover:opacity-50">

@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import {
   BsInstagram,
   AiOutlineHome,
@@ -11,9 +11,8 @@ import {
   HiOutlineBars3,
   TfiVideoClapper,
 } from "react-icons/all";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Createpostscreen } from "../../createposts/createpostscreen";
-import Preview from "../../createposts/preview";
 import Menubar from "./menubar";
 
 const menuContext = createContext<any>(0);
@@ -21,7 +20,13 @@ const menuContext = createContext<any>(0);
 function Sidepanel(props: { state: boolean }) {
   const [menu, setMenu] = useState(false);
   const [newpostscreen, setNewpostscreen] = useState(false);
+  const location = useLocation();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    console.log(location.pathname);
+  }, []);
+
   return (
     <menuContext.Provider value={[newpostscreen, setNewpostscreen]}>
       <div className="">
@@ -45,7 +50,9 @@ function Sidepanel(props: { state: boolean }) {
                   onClick={() => {
                     navigate("/");
                   }}
-                  className="flex items-center w-full p-2 text-base font-normal text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                  className={`flex items-center w-full p-2 text-base font-normal text-black rounded-lg dark:text-white hover:bg-gray-100 ${
+                    location.pathname == "/home" ? "bg-gray-700" : ""
+                  } dark:hover:bg-gray-700`}
                 >
                   <AiOutlineHome className="w-6 h-6" />
                   <span className="ml-3">Home</span>
@@ -63,13 +70,10 @@ function Sidepanel(props: { state: boolean }) {
               <li>
                 <a
                   href="#"
-                  className="flex items-center p-2 text-base font-normal text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                  className="flex items-center p-2 text-base font-normal text-bl;ack rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
                 >
                   <MdExplore className="w-6 h-6" />
                   <span className="flex-1 ml-3 whitespace-nowrap">Explore</span>
-                  {/* <span className="inline-flex justify-center items-center p-3 ml-3 w-3 h-3 text-sm font-medium text-blue-600 bg-blue-200 rounded-full dark:bg-blue-900 dark:text-blue-200">
-                  3
-                </span> */}
                 </a>
               </li>
               <li>
@@ -77,7 +81,9 @@ function Sidepanel(props: { state: boolean }) {
                   onClick={() => {
                     navigate("/reels");
                   }}
-                  className="flex items-center w-full  p-2 text-base font-normal text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                  className={`flex items-center w-full  p-2 text-base font-normal text-black rounded-lg dark:text-white hover:bg-gray-100 ${
+                    location.pathname == "/reels" ? "bg-gray-700" : ""
+                  } dark:hover:bg-gray-700`}
                 >
                   <TfiVideoClapper className="w-6 h-6 fill-white" />
                   <span className="ml-3">Reels</span>
@@ -88,12 +94,12 @@ function Sidepanel(props: { state: boolean }) {
                   onClick={() => {
                     navigate("/messages");
                   }}
-                  className="flex items-center p-2 text-base font-normal text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                  className={`flex items-center w-full p-2 text-base font-normal text-black rounded-lg dark:text-white hover:bg-gray-100 ${
+                    location.pathname == "/messages" ? "bg-gray-700" : ""
+                  } dark:hover:bg-gray-700`}
                 >
                   <BsMessenger className="w-6 h-6" />
-                  <span className="flex-1 ml-3 whitespace-nowrap">
-                    Messages
-                  </span>
+                  <span className=" ml-3">Messages</span>
                 </button>
               </li>
               <li>
@@ -112,7 +118,7 @@ function Sidepanel(props: { state: boolean }) {
                   onClick={() => {
                     setNewpostscreen(!newpostscreen);
                   }}
-                  className="flex w-full p-2 text-base font-normal text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                  className={`flex w-full p-2 text-base font-normal text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700`}
                 >
                   <AiOutlinePlusSquare className="w-6 h-6 fill-white" />
                   <span className="ml-3 whitespace-nowrap">Create</span>
@@ -123,7 +129,9 @@ function Sidepanel(props: { state: boolean }) {
                   onClick={() => {
                     navigate("/profile");
                   }}
-                  className="flex w-full p-2 text-base font-normal text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                  className={`flex w-full p-2 text-base font-normal text-black rounded-lg dark:text-white hover:bg-gray-100 ${
+                    location.pathname == "/profile" ? "bg-gray-700" : ""
+                  } dark:hover:bg-gray-700`}
                 >
                   <CgProfile className="w-6 h-6 fill-white" />
                   <span className="ml-3 whitespace-nowrap">Profile</span>
@@ -134,7 +142,7 @@ function Sidepanel(props: { state: boolean }) {
                   onClick={() => {
                     setMenu(!menu);
                   }}
-                  className="flex w-full items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                  className={`flex w-full items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700`}
                 >
                   <HiOutlineBars3 className="w-6 h-6 fill-white" />
                   <span className="flex-1 ml-3 text-left text-white whitespace-nowrap">

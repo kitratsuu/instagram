@@ -2,7 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-.scrollhide {
+/* .scrollhide {
+  scrollbar-width: none;
+} */
+.scrollhide::-webkit-scrollbar {
+  width: 0px;
   scrollbar-width: none;
 }
 html,
@@ -10,3 +14,9 @@ body,
 #root {
   height: 100%;
 }
+
+/* @layer utilities {
+  .scrollhide::-webkit-scrollbar {
+    width: 0px;
+  }
+} */
