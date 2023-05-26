@@ -51,7 +51,9 @@ export default function Chatterscreen() {
             <div key={index} className={`w-full`}>
               <span
                 className={`${
-                  chat.username == data?.userName ? "float-left" : "float-right"
+                  chat.username == data?.userName
+                    ? "float-right bg-green-500 px-3 py-1 rounded-lg"
+                    : "float-left bg-zinc-500 px-3 py-1 rounded-lg"
                 }`}
               >
                 {chat.ch}

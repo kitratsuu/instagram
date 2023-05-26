@@ -7,13 +7,13 @@ import { getAnalytics } from "firebase/analytics";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyAIGukCTJOvMZNvZlakzW8Vf7qWOcAxM1I",
-  authDomain: "insta-21fdb.firebaseapp.com",
-  projectId: "insta-21fdb",
-  storageBucket: "insta-21fdb.appspot.com",
-  messagingSenderId: "990325657064",
-  appId: "1:990325657064:web:2dccfe232cf7518b13e85d",
-  measurementId: "G-R7MRFS7C9C",
+  apiKey: import.meta.env.VITE_FIREBASE_APIKEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECTID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_FIREBASE_APPID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENTID,
 };
 
 // Initialize Firebase
