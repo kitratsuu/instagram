@@ -6,6 +6,7 @@ import { chatstates } from "../messages";
 import { Basicdata, Chats } from "../../types/datafetch";
 import { Timestamp, doc, getDoc, getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
+import { diffbetdates } from "../../functions/userfuncs2";
 
 export default function Chatterscreen() {
   const { chatter } = useContext(chatstates);
@@ -50,12 +51,21 @@ export default function Chatterscreen() {
           return (
             <div
               key={index}
-              className={`w-full flex ${
+              className={`w-full h-[35px] flex ${
                 chat.username == data?.userName
                   ? "justify-end"
                   : "justify-start"
               } border-transparent border-2`}
             >
+              {chat.username == data?.userName ? (
+                <div className="h-full flex justify-end items-end">
+                  <span className="text-[10px] opacity-70">
+                    {diffbetdates(chat.timestamp)}
+                  </span>
+                </div>
+              ) : (
+                ""
+              )}
               <span
                 className={` text-[10px]${
                   chat.username == data?.userName
@@ -65,6 +75,15 @@ export default function Chatterscreen() {
               >
                 {chat.ch}
               </span>
+              {chat.username == data?.userName ? (
+                ""
+              ) : (
+                <div className="h-full flex justify-end items-end">
+                  <span className="text-[10px] opacity-70">
+                    {diffbetdates(chat.timestamp)}
+                  </span>
+                </div>
+              )}
             </div>
           );
         })}
