@@ -22,6 +22,7 @@ export default function Reeldisplay(props: any) {
   useEffect(() => {
     fetchpostfromstore(props.item.folderuid, props.item.uid);
   }, []);
+  console.log(fetchedreelurl);
 
   useEffect(() => {
     if (isIntersecting) {
@@ -38,12 +39,16 @@ export default function Reeldisplay(props: any) {
         ref={videodisplay}
         className="w-[90%] h-full border-2 border-slate-600 rounded-lg"
       >
-        <video
-          ref={videoref}
-          src={fetchedreelurl}
-          autoPlay={isIntersecting}
-          className="h-full w-full"
-        ></video>
+        {fetchedreelurl.length > 0 ? (
+          <video
+            ref={videoref}
+            src={fetchedreelurl!}
+            autoPlay={isIntersecting}
+            className="h-full w-full"
+          ></video>
+        ) : (
+          <></>
+        )}
       </div>
       <div className="text-white h-full flex flex-col justify-end space-y-5">
         <button>

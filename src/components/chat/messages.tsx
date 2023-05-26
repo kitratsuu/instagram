@@ -57,7 +57,16 @@ export default function Messages() {
             </div>
           </div>
           <div className="h-full  w-[60%] border-0 border-slate-200">
-            <div className="h-[10%] w-full border-2 border-slate-200"></div>
+            <div className="h-[10%] w-full border-2 flex justify-end items-center border-slate-200">
+              <button
+                onClick={() => {
+                  setUsersearchscreenstate(true);
+                }}
+                className="bg-blue-500 hover:bg-blue-700 border-slate-200 font-bold py-2 px-4 rounded"
+              >
+                Search New user
+              </button>
+            </div>
             {fetchedchatters.length > 0 ? <Chatterscreen /> : <Defaultscreen />}
           </div>
         </div>

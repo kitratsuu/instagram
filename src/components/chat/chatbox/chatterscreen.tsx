@@ -45,15 +45,22 @@ export default function Chatterscreen() {
   };
   return (
     <div className="h-[90%] w-full border-2 border-slate-200">
-      <div className="w-full h-[93%] flex flex-col justify-end items-center space-y-3">
+      <div className="w-full h-[90%]  mb-3 justify-end space-y-3 overflow-y-scroll">
         {fetchedchats.map((chat: any, index: any) => {
           return (
-            <div key={index} className={`w-full`}>
+            <div
+              key={index}
+              className={`w-full flex ${
+                chat.username == data?.userName
+                  ? "justify-end"
+                  : "justify-start"
+              } border-transparent border-2`}
+            >
               <span
-                className={`${
+                className={` text-[10px]${
                   chat.username == data?.userName
-                    ? "float-right bg-green-500 px-3 py-1 rounded-lg"
-                    : "float-left bg-zinc-500 px-3 py-1 rounded-lg"
+                    ? "float-right bg-green-800 px-3 py-1 text-right min-w-[150px] rounded-tl-2xl"
+                    : "float-left bg-zinc-500 px-3 py-1 text-left min-w-[150px] rounded-tr-2xl"
                 }`}
               >
                 {chat.ch}
@@ -62,11 +69,12 @@ export default function Chatterscreen() {
           );
         })}
       </div>
-      <div className="h-[7%] w-full items-end justify-between flex">
+      <div className="h-[8%] w-full items-end justify-between flex">
         <input
           onKeyDown={(event) => {
             if (event.key == "Enter") {
-              handleclick;
+              console.log("clicked");
+              handleclick();
             }
           }}
           ref={message}
