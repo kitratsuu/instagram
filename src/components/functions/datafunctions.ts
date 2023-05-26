@@ -5,13 +5,11 @@ import {
   setDoc,
   updateDoc,
   Timestamp,
-  getDoc,
 } from "firebase/firestore";
 import { getStorage, ref, uploadBytesResumable } from "firebase/storage";
 import { useEffect, useState } from "react";
 import { useQueryClient } from "react-query";
 import uuid from "react-uuid";
-import { Basicdata } from "../types/datafetch";
 
 export function updateFields() {
   const [error, setError] = useState<string>();

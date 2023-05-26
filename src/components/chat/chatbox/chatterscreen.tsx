@@ -44,8 +44,8 @@ export default function Chatterscreen() {
     }
   };
   return (
-    <div className="h-[90%] w-full border-2 border-slate-200">
-      <div className="w-full h-[90%]  mb-3 justify-end space-y-3 overflow-y-scroll">
+    <div className="h-[90%] flex flex-col justify-end w-full border-2 border-slate-200">
+      <div className="w-full max-h-[90%]  mb-3 justify-end space-y-3 scrollhide overflow-y-auto">
         {fetchedchats.map((chat: any, index: any) => {
           return (
             <div

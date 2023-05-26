@@ -2,7 +2,6 @@ import React, { ReactNode, useEffect } from "react";
 import { useAuthChangeStatusCheck } from "../functions/authfunctions";
 import { useBasicData } from "../functions/userfncs";
 import { useNavigate } from "react-router-dom";
-import { ColorRing } from "react-loader-spinner";
 import Loading from "../extracomponents/loading";
 
 export default function Auth2(props: {

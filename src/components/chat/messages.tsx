@@ -35,7 +35,7 @@ export default function Messages() {
         chatter: [currchatter, setCurrchatter],
       }}
     >
-      <div className="w-full h-screen text-white border-2 mt-2 border-white flex justify-center items-center">
+      <div className="w-full h-screen text-white border-2 mt-2 scrollhide border-white flex justify-center items-center">
         {usersearchscreenstate ? <Searchpeoplescreen /> : <></>}
         <div className="w-[80%] h-[90%] border-2 border-slate-400 rounded-lg flex">
           <div className="h-full w-[40%]">

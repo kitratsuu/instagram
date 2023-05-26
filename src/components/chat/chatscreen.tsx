@@ -33,7 +33,7 @@ export default function Chatscreen() {
         curruser: [data, setData],
       }}
     >
-      <div className="App bg-black">
+      <div className="App scrollhide bg-black">
         <Top
           setval={(tf) => {
             setTopnav(tf);
@@ -41,7 +41,7 @@ export default function Chatscreen() {
           alval={topnav}
         />
 
-        <div className="flex max-h-screen w-screen justify-center sm:justify-between md:justify-between lg:justify-between xl:justify-between">
+        <div className="flex max-h-screen w-screen scrollhide justify-center sm:justify-between overflow-hidden md:justify-between lg:justify-between xl:justify-between">
           <Sidepanel state={topnav} />
           <Messages />
         </div>

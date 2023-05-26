@@ -32,7 +32,7 @@ function Profiledetails() {
     <profilecontextData.Provider
       value={[changeprofilepicscreen, setChangeprofilepicscreen]}
     >
-      <div className="w-full space-y-8 overflow-auto">
+      <div className="w-full space-y-8 overflow-auto scrollhide">
         <div className={`${changeprofilepicscreen ? "block" : "hidden"}`}>
           <Pfpupdate />
         </div>

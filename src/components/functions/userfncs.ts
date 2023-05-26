@@ -16,12 +16,9 @@ import {
   collection,
   getDocs,
 } from "firebase/firestore";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Basicdata } from "../types/datafetch";
-import { useQuery, useQueryClient } from "react-query";
-import uuid from "react-uuid";
-import { ref } from "firebase/storage";
-import Profile from "../../../public/profile.jpg";
+import { useQuery } from "react-query";
 import { useUploadProfilepic } from "../profile/profilefunctions/profilefunctions";
 
 export function signUpNew() {
