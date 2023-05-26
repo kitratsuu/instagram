@@ -1,6 +1,6 @@
 import { getAuth } from "firebase/auth";
-import { Firestore, Timestamp } from "firebase/firestore";
-import React, { useEffect, useState } from "react";
+import { Timestamp } from "firebase/firestore";
+import { useState } from "react";
 import { FaBirthdayCake } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { updateFields } from "../../../../functions/datafunctions";
@@ -11,8 +11,8 @@ const Birthday = () => {
   const [value, setValue] = useState<string>();
   const navigate = useNavigate();
 
-  const handleValueChange = (newValue: any) => {
-    setValue(newValue);
+  const handleValueChange = (event: any) => {
+    setValue(event.target.value);
   };
 
   const { error, loading, updField } = updateFields();
@@ -42,7 +42,7 @@ const Birthday = () => {
           <FaBirthdayCake size={50} />
           <span className="text-2xl font-serif">Enter your Birthday</span>
         </div>
-        <div className="w-[300px]">
+        <div className="w-[300px] flex justify-center">
           <input
             type="date"
             value={value}
