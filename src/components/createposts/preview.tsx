@@ -4,9 +4,11 @@ import { useUploaduserdata } from "../functions/datafunctions";
 import { menuContext } from "../mainpage/left panel/leftpanel";
 import { contextData } from "./createpostscreen";
 import Extradata from "./extradata";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export default function Preview() {
   const [newpostscreen, setNewpostscreen] = useContext(menuContext);
+  const navigate = useNavigate();
   const {
     image,
     pop,
@@ -41,7 +43,9 @@ export default function Preview() {
       userName: data?.userName,
     };
     upload(obj);
-    console.log(obj);
+    setTimeout(() => {
+      navigate("/");
+    }, 2000);
   }
   return (
     <div
