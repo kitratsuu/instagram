@@ -21,7 +21,9 @@ export default function Signup() {
       <div className="flex flex-col my-auto items-center w-full space-y-3">
         <div className="flex flex-col space-y-3 items-center w-[400px] h-fit border-2 border-slate-400">
           <div className="flex flex-col text-center items-center">
-            <div className="flex flex-col text-center items-center w-[175px] h-[103px] bg-no-repeat bg-[url('https://static.cdninstagram.com/rsrc.php/v3/y-/r/yXM3FgMdVNX.png')]"></div>
+            <div className="flex justify-center items-center text-center w-[175px] h-[103px] ">
+              <span className="text-4xl font-black">Instagram</span>
+            </div>
             <span className="text-xl font-bold text-slate-400 mx-10">
               Sign up to see photoes of your friends and family
             </span>
@@ -52,7 +54,7 @@ export default function Signup() {
           <div className="">
             <span>OR</span>
           </div>
-          <div className="flex flex-col space-y-4">
+          <div className="flex flex-col w-[70%] space-y-4">
             <form
               className="space-y-3 flex flex-col items-center"
               onSubmit={handleSubmit((data: any) => {
@@ -61,26 +63,26 @@ export default function Signup() {
             >
               <input
                 placeholder="Email"
-                className="rounded-lg"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 type={"email"}
                 {...register("email", { required: true })}
               />
 
               <input
                 placeholder="Full-name"
-                className="rounded-lg"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 type="text"
                 {...register("fname", { required: true })}
               />
               <input
                 placeholder="Username"
-                className="rounded-lg"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 type="text"
                 {...register("uname", { required: true })}
               />
               <input
                 placeholder="Password"
-                className="rounded-lg"
+                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full  p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 type="password"
                 {...register("pass", { required: true })}
               />
