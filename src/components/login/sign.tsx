@@ -29,11 +29,9 @@ export default function Sign() {
               autoCorrect="off"
               autoCapitalize="none"
               className="space-y-3 flex flex-col items-center"
-              onSubmit={(e) => {
-                handleSubmit((data: any) => {
-                  signIn(data);
-                });
-              }}
+              onSubmit={handleSubmit((data: any) => {
+                signIn(data);
+              })}
             >
               <label
                 htmlFor="input-group-1"
