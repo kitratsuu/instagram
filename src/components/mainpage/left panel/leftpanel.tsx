@@ -59,22 +59,22 @@ function Sidepanel(props: { state: boolean }) {
                 </button>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="flex items-center p-2 text-base font-normal text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                <button
+                  disabled={true}
+                  className="flex items-center p-2 text-base font-normal text-black rounded-lg dark:text-white"
                 >
                   <AiOutlineSearch className="w-6 h-6" />
-                  <span className="flex-1 ml-3 whitespace-nowrap">Search</span>
-                </a>
+                  <span className="ml-3 text-gray-400">Search</span>
+                </button>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="flex items-center p-2 text-base font-normal text-bl;ack rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+                <button
+                  disabled={true}
+                  className="flex items-center w-full p-2 text-base font-normal text-blaack rounded-lg dark:text-white"
                 >
                   <MdExplore className="w-6 h-6" />
-                  <span className="flex-1 ml-3 whitespace-nowrap">Explore</span>
-                </a>
+                  <span className="ml-3 text-gray-400">Explore</span>
+                </button>
               </li>
               <li>
                 <button
@@ -103,15 +103,10 @@ function Sidepanel(props: { state: boolean }) {
                 </button>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="flex items-center p-2 text-base font-normal text-black rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
-                >
+                <button className="flex items-center p-2 text-base font-normal text-black rounded-lg dark:text-white">
                   <IoIosNotificationsOutline className="w-6 h-6 fill-white" />
-                  <span className="flex-1 ml-3 whitespace-nowrap">
-                    Notifications
-                  </span>
-                </a>
+                  <span className="ml-3 text-gray-400">Notifications</span>
+                </button>
               </li>
               <li>
                 <button

@@ -26,7 +26,7 @@ export default function Messages() {
 
   useEffect(() => {
     chattersFetch();
-  }, []);
+  }, [usersearchscreenstate]);
 
   return (
     <chatstates.Provider

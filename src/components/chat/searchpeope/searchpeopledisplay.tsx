@@ -2,6 +2,7 @@ import { useContext, useEffect, useRef, useState } from "react";
 import {
   useCreatechat,
   useElement,
+  useFetchchatterlist,
   useFetchprofilepics,
 } from "../../functions/chatfunctions";
 import { AiOutlineClose } from "react-icons/ai";
@@ -9,6 +10,7 @@ import { chatdata } from "../chatscreen";
 import { Basicdata } from "../../types/datafetch";
 import { Timestamp } from "firebase/firestore";
 import { chatstates } from "../messages";
+import { useNavigate } from "react-router-dom";
 
 export default function Searchpeopledisplay(props: { val: any }) {
   const ref = useRef<HTMLDivElement>(null);
