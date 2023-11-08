@@ -39,15 +39,17 @@ export default function Messages() {
         {usersearchscreenstate ? <Searchpeoplescreen /> : <></>}
         <div className="w-[80%] h-[90%] border-2 border-slate-400 rounded-lg flex">
           <div className="h-full w-[40%]">
-            <div className="h-[10%] w-full border-2 flex items-center border-slate-300 space-x-4 ">
-              <div className="w-[40px] h-[40px] border-2 border-slate-200 rounded-full">
+            <div className="h-[10%] w-full border-2 flex max-md:hidden items-center border-slate-300 space-x-4 ">
+              <div className="max-w-[40px] max-h-[40px] w-full h-full border-2 border-slate-200 rounded-full">
                 <img
                   src={profilepic}
                   className="w-full h-full rounded-full"
                   alt=""
                 />
               </div>
-              <span className="text-white text-3xl">{data?.userName}</span>
+              <span className="text-white text-3xl max-md:text-1xl">
+                {data?.userName}
+              </span>
             </div>
             <div className="h-[90%] w-full border-2 border-slate-200 space-y-4">
               <span className="text-xl font-bold">Messages</span>

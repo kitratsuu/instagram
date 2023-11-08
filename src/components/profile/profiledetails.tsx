@@ -54,7 +54,16 @@ function Profiledetails() {
           <div className="h-[300px] sm:w-2/3 md:w-2/3 lg:w-2/3 w-full border-2 border-none">
             <div className="m-5 space-y-5">
               <div className="flex items-center sm:w-fit md:w-fit lg:w-fit w-full  space-x-5 ">
-                <div className="w-[50px] h-[50px] sm:hidden md:hidden lg:hidden block rounded-full border-2 border-none"></div>
+                <div className="w-[50px] h-[50px] sm:hidden md:hidden lg:hidden block rounded-full border-2 border-none">
+                  <img
+                    onClick={() => {
+                      setChangeprofilepicscreen(true);
+                    }}
+                    src={profilepic}
+                    alt=""
+                    className="w-full h-full rounded-full"
+                  />
+                </div>
 
                 <span className="text-white text-[30px]">{data?.userName}</span>
                 <button className="bg-white sm:block md:block lg:block hidden h-fit p-1 rounded-lg hover:bg-white/50">
